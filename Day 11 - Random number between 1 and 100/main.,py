@@ -1,0 +1,38 @@
+import random
+
+computerSelectedNumber = random.randint(1, 100)
+attempts = 10
+
+
+def userInput(attempts):
+    print(f"\nYou have {attempts} attempts remaining.")
+    userNo = int(input("Enter a number between 1 and 100: "))
+    return userNo
+
+
+def checker(computerSelectedNumber):
+    userNo = userInput(attempts)
+
+    if userNo == computerSelectedNumber:
+        print("🎉 You win the game!")
+        return True
+
+    elif userNo > computerSelectedNumber:
+        print("📈 Too High!")
+
+    else:
+        print("📉 Too Low!")
+
+    return False
+
+
+while attempts > 0:
+
+    if checker(computerSelectedNumber):
+        break
+
+    attempts -= 1
+
+if attempts == 0:
+    print("\n😢 You lose!")
+    print("The correct number was:", computerSelectedNumber)
